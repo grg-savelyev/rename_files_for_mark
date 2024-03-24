@@ -22,7 +22,7 @@ def create_excel_dict(folder_path: str, excel_name: str) -> dict | None:
         print(f'Файл Excel "{excel_name}" не найден.')
         return
 
-    return dict(zip(df['id'], df['name'].apply(replace_special_chars)))
+    return dict(zip(df['id'], df['name'].astype(str).apply(replace_special_chars)))
 
 
 def replace_special_chars(text: str) -> str:
